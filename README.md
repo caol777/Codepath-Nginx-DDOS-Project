@@ -55,3 +55,16 @@ location allows you to monitor the server's status, which can be useful for iden
   These two commands aid with closing slow connections based off of the amount of times a connection is trying to write data. Since our attack is using slowloris the connections are slow and write infrequently and these timeouts will put a stop on those connections.
 
 6. Keepalive Timeout: The keepalive_timeout is set to 5 seconds, which is reasonable for maintaining persistent connections lowering this keep alive can help lower our current requests/connections.
+
+## The Results (14:43 start)
+
+![Screenshot from 2024-10-18 15-27-04](https://github.com/user-attachments/assets/1c6a7f89-c669-48d5-8007-a42ea5fe3cc8)
+
+
+![Screenshot from 2024-10-18 15-27-16](https://github.com/user-attachments/assets/bdb0ef3f-bf2a-4ce8-9b1e-f1242d682aa2)
+
+
+![Screenshot from 2024-10-18 15-27-24](https://github.com/user-attachments/assets/f6571eba-33d9-4fc8-a2c1-182e3f0d9338)
+
+
+As you can see the current connections went down drastically and things like our file descriptors stayed at a constant 273 thru out the attack period.
