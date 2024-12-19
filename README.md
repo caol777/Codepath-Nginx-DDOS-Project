@@ -68,3 +68,21 @@ location allows you to monitor the server's status, which can be useful for iden
 
 
 As you can see the current connections went down drastically and things like our file descriptors stayed at a constant 273 thru out the attack period.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Now onto the PCAP files.
+
+
+The question for these files was which file has DDos mitigation setup on their network based off of the pcap files. 
+
+This is pcap A
+
+![image](https://github.com/user-attachments/assets/538649a0-edb6-4ffc-aa62-e75a20143056)
+
+And this is pcap B
+![image](https://github.com/user-attachments/assets/c6d6d55e-4455-4fbf-85b6-e461305e125d)
+
+
+
+I would say that the A.pcap file represents the server with DDoS mitigation set up. While it contains more packets than B.pcap, it also includes packets that are not present in B.pcap. Notably, the TCP RST packets are found in B.pcap. At first glance, this might appear to be an error; however, upon closer inspection, it becomes clear that these packets are dropping connections from HTTP GET requests. This indicates that A.pcap has mechanisms in place to drop connections for certain parts of the web server. Additionally, there was a difference in the speed at which the packets were logged. On average, A.pcap recorded packets more quickly, while B.pcap lagged behind. B.pcap seemed too tame, and given the context of our project, it is evident that it was not as secure as A.pcap
